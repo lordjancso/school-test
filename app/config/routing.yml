@@ -1,3 +1,11 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+home.index:
+    path:     /
+    defaults: { _controller: AppBundle:Home:index }
+
+students.index:
+    path:     /students/index
+    defaults: { _controller: AppBundle:Student:index }
+
+students.create:
+    path:     /students/create
+    defaults: { _controller: AppBundle:Student:create }

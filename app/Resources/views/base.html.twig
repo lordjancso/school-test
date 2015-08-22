@@ -2,11 +2,36 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Student Administration Framework{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div id="body">
+            <div id="header">
+                <div id="logo">
+
+                </div>
+                <div id="user">
+
+                </div>
+            </div>
+            <div id="page">
+                <div id="menu">
+
+                </div>
+                <div id="wrapper">
+                    <div id="actions">
+                        <div id="serach" class="left_panel"></div>
+                        <div id="buttons" class="right_panel"></div>
+                    </div>
+                    <div id="content">
+                        <div id="filter" class="left_panel"></div>
+                        <div id="table"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
