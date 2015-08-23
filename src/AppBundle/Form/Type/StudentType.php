@@ -24,6 +24,12 @@ class StudentType extends AbstractType
             'placeholder' => array('year' => 'Year', 'month' => 'Month', 'day' => 'Day')
         ));
         $builder->add('email', 'email');
+
+        $builder->add('studyGroups', 'entity', array(
+            'class' => 'AppBundle:StudyGroup',
+            'choice_label' => 'name',
+            'multiple' => true
+        ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

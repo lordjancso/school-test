@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Student
@@ -46,6 +47,8 @@ class Student
     /**
      * @var \DateTime
      *
+     * @Assert\Date()
+     *
      * @ORM\Column(name="birthday", type="date")
      */
     private $birthday;
@@ -53,12 +56,18 @@ class Student
     /**
      * @var string
      *
+     * @Assert\Email()
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var StudyGroup[]
+     *
+     * @Assert\Count(
+     *     max="4"
+     * )
      *
      * @ORM\ManyToMany(targetEntity="StudyGroup", inversedBy="students")
      * @ORM\JoinTable(name="student_study_groups")
