@@ -1,6 +1,6 @@
 home.index:
     path:     /
-    defaults: { _controller: AppBundle:Home:index }
+    defaults: { _controller: AppBundle:Student:index }
 
 students.index:
     path:     /students/index

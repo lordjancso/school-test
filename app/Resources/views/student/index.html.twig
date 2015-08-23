@@ -1,7 +1,26 @@
-{% extends "base.html.twig" %}
+{% extends "student/menu.html.twig" %}
 
-{% block title %}AppBundle:Student:list{% endblock %}
+{% block content %}
+    <div id="wrapper">
+        <div id="actions" class="clearfix">
+            <div id="serach" class="left_panel">
+                <h2>Search for name</h2>
 
-{% block body %}
-<h1>Welcome to the Student:list page</h1>
+                <form action="" method="get">
+                    <input type="text" name="keyword"/>
+                </form>
+            </div>
+            <div id="buttons" class="right_panel">
+
+            </div>
+        </div>
+        <div id="content" class="clearfix">
+            <div id="filter" class="left_panel">
+                <h2>Filters for study groups</h2>
+            </div>
+            <div id="table" class="right_panel">
+
+            </div>
+        </div>
+    </div>
 {% endblock %}

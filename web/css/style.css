@@ -1,0 +1,144 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e8ecef;
+    color: #2e3434;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+#body {
+    margin: 0 auto;
+    width: 1239px;
+}
+
+/* header */
+
+#header {
+    width: 100%;
+    height: 140px;
+    padding-top: 30px;
+}
+
+#header #logo {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#header #user {
+    float: right;
+    text-align: right;
+    width: 50%;
+    height: 100%;
+}
+
+#user .name, #user img {
+    vertical-align: middle;
+}
+
+#user .name {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* page */
+
+#page {
+
+}
+
+/* menu */
+
+#page #menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#menu li {
+    float: left;
+    height: 124px;
+    background: #f4f7f9;
+    margin-right: 10px;
+    border-top: 1px solid #dbe0e4;
+    border-left: 1px solid #dbe0e4;
+    border-right: 1px solid #dbe0e4;
+    box-shadow: 1px -1px 0 0 #dbe0e4;
+    border-radius: 4px 4px 0 0;
+    padding: 42px;
+}
+
+#menu li.active {
+    background: #ffffff;
+}
+
+#menu li a {
+    vertical-align: middle;
+}
+
+#menu li a span {
+    display: block;
+}
+
+#menu li a span.title {
+    color: #34cae0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#menu li a span.subtitle {
+    color: #767a7e;
+}
+
+#menu #students {
+    width: 430px;
+}
+
+#menu #study_groups {
+    width: 515px;
+}
+
+/* wrapper */
+
+#page #wrapper {
+    background: #ffffff;
+    border-bottom: 1px solid #dbe0e4;
+    border-left: 1px solid #dbe0e4;
+    border-right: 1px solid #dbe0e4;
+    border-radius: 0 4px 4px 4px;
+}
+
+.left_panel {
+    float: left;
+    width: 309px;
+}
+.right_panel {
+    float: right;
+    width: 930px;
+}
+
+#wrapper #actions {
+    border-bottom: 1px solid #f4f7f9;
+    height: 120px;
+}

@@ -5,34 +5,27 @@
         <title>{% block title %}Student Administration Framework{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="body">
-            <div id="header">
+            <div id="header" class="clearfix">
                 <div id="logo">
-
+                    <a href="{{ path('home.index') }}">
+                        <img src="{{ asset('images/logo.png') }}" />
+                    </a>
                 </div>
                 <div id="user">
-
+                    <img src="{{ asset('images/icon_user.png') }}" />
+                    <span class="name">Adam</span>
+                    <img src="{{ asset('images/icon_dropdown.png') }}" />
                 </div>
             </div>
             <div id="page">
-                <div id="menu">
-
-                </div>
-                <div id="wrapper">
-                    <div id="actions">
-                        <div id="serach" class="left_panel"></div>
-                        <div id="buttons" class="right_panel"></div>
-                    </div>
-                    <div id="content">
-                        <div id="filter" class="left_panel"></div>
-                        <div id="table"></div>
-                    </div>
-                </div>
+                {% block body %}{% endblock %}
             </div>
         </div>
-        {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
