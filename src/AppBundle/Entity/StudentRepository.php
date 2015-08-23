@@ -29,4 +29,17 @@ class StudentRepository extends EntityRepository
 
         return $students;
     }
+
+    public function findByFilterWithStudyGroup($filters)
+    {
+        $students = $this->createQueryBuilder('s')
+            ->select('s', 'g')
+            ->join('s.studyGroups', 'g')
+            ->where('g.id IN (:filters)')
+            ->setParameter('filters', $filters)
+            ->getQuery()
+            ->getResult();
+
+        return $students;
+    }
 }

@@ -15,8 +15,12 @@ class StudentController extends Controller
 
         $study_groups = $em->getRepository('AppBundle:StudyGroup')->findAll();
 
-        if ($keyword = $request->get('keyword')) {
-            $students = $em->getRepository('AppBundle:Student')->findByKeywordWithStudyGroup($keyword);
+        if ($request->get('keyword') || $request->get('filters')) {
+            if ($keyword = $request->get('keyword')) {
+                $students = $em->getRepository('AppBundle:Student')->findByKeywordWithStudyGroup($keyword);
+            } elseif ($filters = $request->get('filters')) {
+                $students = $em->getRepository('AppBundle:Student')->findByFilterWithStudyGroup($filters);
+            }
         } else {
             $students = $em->getRepository('AppBundle:Student')->findAllWithStudyGroup();
         }

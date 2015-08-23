@@ -14,4 +14,8 @@ $(function () {
 
         ids_input.val(ids.join(','));
     });
+
+    $('#filter input').on('change', function () {
+        $(this).closest('form').submit();
+    });
 });

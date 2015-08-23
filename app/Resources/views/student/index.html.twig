@@ -7,7 +7,7 @@
                 <h2>Search for name</h2>
 
                 <form action="" method="get">
-                    <input type="text" name="keyword" value="{{ app.request.get('keyword') }}" />
+                    <input type="text" name="keyword" value="{{ app.request.get('keyword') }}"/>
                 </form>
             </div>
             <div id="info" class="right_panel clearfix">
@@ -19,8 +19,9 @@
                     <a href="{{ path('students.create') }}">
                         <span class="icon"></span> New
                     </a>
+
                     <form action="{{ path('students.delete') }}" method="post" id="delete_form">
-                        <input type="hidden" name="ids" />
+                        <input type="hidden" name="ids"/>
                         <button type="submit">Delete selected</button>
                     </form>
                 </div>
@@ -32,12 +33,15 @@
         <div id="content" class="clearfix">
             <div id="filter" class="left_panel">
                 <h2>Filters for study groups</h2>
-                {% for study_group in study_groups %}
-                    <div>
-                        <input type="checkbox" value="{{ study_group.id }}"/>
-                        {{ study_group.name }}
-                    </div>
-                {% endfor %}
+
+                <form action="" method="get">
+                    {% for study_group in study_groups %}
+                        <div>
+                            <input type="checkbox" name="filters[]" value="{{ study_group.id }}" {% if study_group.id in app.request.get('filters') %}checked{% endif %}/>
+                            {{ study_group.name }}
+                        </div>
+                    {% endfor %}
+                </form>
             </div>
             <div id="table" class="right_panel">
                 <table width="100%">
@@ -51,8 +55,8 @@
                     </tr>
                     {% for student in students %}
                         <tr>
-                            <td><input type="checkbox" value="{{ student.id }}" name="students[]" /></td>
-                            <td><img src="{{ asset('images/icon_user1.png') }}" /></td>
+                            <td><input type="checkbox" value="{{ student.id }}" name="students[]"/></td>
+                            <td><img src="{{ asset('images/icon_user1.png') }}"/></td>
                             <td>
                                 <a href="{{ path('students.edit', {id: student.id}) }}">{{ student.name }}</a>
                             </td>
