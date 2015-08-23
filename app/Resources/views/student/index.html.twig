@@ -7,7 +7,7 @@
                 <h2>Search for name</h2>
 
                 <form action="" method="get">
-                    <input type="text" name="keyword"/>
+                    <input type="text" name="keyword" value="{{ app.request.get('keyword') }}" />
                 </form>
             </div>
             <div id="info" class="right_panel clearfix">

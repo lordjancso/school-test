@@ -9,3 +9,12 @@ students.index:
 students.create:
     path:     /students/create
     defaults: { _controller: AppBundle:Student:create }
+
+students.edit:
+    path:     /students/{id}/edit
+    defaults: { _controller: AppBundle:Student:edit }
+
+students.delete:
+    path:     /students/delete
+    defaults: { _controller: AppBundle:Student:delete }
+
