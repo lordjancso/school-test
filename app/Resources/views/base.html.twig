@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Student Administration Framework{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Student Administration Framework{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div id="body">
-            <div id="header" class="clearfix">
-                <div id="logo">
-                    <a href="{{ path('home.index') }}">
-                        <img src="{{ asset('images/logo.png') }}" />
-                    </a>
-                </div>
-                <div id="user">
-                    <img src="{{ asset('images/icon_user.png') }}" />
-                    <span class="name">Adam</span>
-                    <img src="{{ asset('images/icon_dropdown.png') }}" />
-                </div>
-            </div>
-            <div id="page">
-                {% block body %}{% endblock %}
-            </div>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="body">
+    <div id="header" class="clearfix">
+        <div id="logo">
+            <a href="{{ path('home.index') }}">
+                <img src="{{ asset('images/logo.png') }}"/>
+            </a>
         </div>
-        {% block javascripts %}{% endblock %}
-    </body>
+        <div id="user">
+            <img src="{{ asset('images/icon_user.png') }}"/>
+            <span class="name">Adam</span>
+            <img src="{{ asset('images/icon_dropdown.png') }}"/>
+        </div>
+    </div>
+    <div id="page">
+        {% for type, messages in app.session.flashbag.all %}
+            <div class="flashbag {{ type }}">
+                {% for message in messages %}
+                    {{ message }}{% if not loop.last %}<br/>{% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

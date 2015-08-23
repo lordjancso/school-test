@@ -40,6 +40,21 @@ body {
     width: 1239px;
 }
 
+.flashbag {
+    position: absolute;
+    width: 1239px;
+    text-align: center;
+    top: -20px;
+}
+
+.flashbag.success {
+    color: green;
+}
+
+.flashbag.error {
+    color: red;
+}
+
 /* header */
 
 #header {
@@ -73,7 +88,7 @@ body {
 /* page */
 
 #page {
-
+    position: relative;
 }
 
 /* menu */
@@ -183,6 +198,10 @@ body {
     float: left;
 }
 
+#info #buttons form {
+    display: inline-block;
+}
+
 #info #buttons a {
     height: 30px;
     display: inline-block;
@@ -191,6 +210,17 @@ body {
     padding-right: 14px;
     margin: 0 20px;
     border-radius: 4px;
+}
+
+button {
+    height: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    background: #34cae0;
+    margin: 0 20px;
+    border: 0;
+    border-radius: 4px;
+    vertical-align: middle;
 }
 
 #info #buttons a span.icon {
@@ -215,6 +245,7 @@ body {
     vertical-align: middle;
     text-align: center;
 }
+
 .pagination span.current {
     color: #ed7b3d;
 }
@@ -249,4 +280,8 @@ body {
 
 #table a {
     text-decoration: underline;
+}
+
+#table span {
+    color: #ed7b3d;
 }

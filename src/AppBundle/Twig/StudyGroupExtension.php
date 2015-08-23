@@ -10,7 +10,7 @@ class StudyGroupExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('renderStudyGroups', array($this, 'renderStudyGroups')),
+            new \Twig_SimpleFilter('renderStudyGroups', array($this, 'renderStudyGroups'), array('pre_escape' => 'html', 'is_safe' => array('html'))),
         );
     }
 
@@ -24,7 +24,7 @@ class StudyGroupExtension extends \Twig_Extension
         }
 
         if (count($names) > 2) {
-            $response = $names[0] . ', ' . $names[1] . ' and ' . (count($names) - 2) . ' more';
+            $response = $names[0] . ', ' . $names[1] . ' and <span>' . (count($names) - 2) . ' more</span>';
         } else {
             $response = implode(', ', $names);
         }

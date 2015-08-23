@@ -3,29 +3,19 @@
 {% block content %}
     <div id="wrapper">
         <div id="actions" class="clearfix">
-            <div id="search" class="left_panel">
-                <h2>Search for name</h2>
-
-                <form action="" method="get">
-                    <input type="text" name="keyword"/>
-                </form>
-            </div>
             <div id="info" class="right_panel clearfix">
                 <div id="buttons">
-                    <a href="{{ path('students.create') }}">
-                        <span class="icon"></span> New
+                    <a href="{{ path('students.index') }}">
+                        <span class="icon"></span> Back
                     </a>
                 </div>
             </div>
         </div>
         <div id="content" class="clearfix">
-            <div id="filter" class="left_panel">
-                <h2>Filters for study groups</h2>
-            </div>
             <div id="table" class="right_panel">
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
-                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+                <button type="submit">{% if form.vars.value.id %}Edit{% else %}Create{% endif %}</button>
                 {{ form_end(form) }}
             </div>
         </div>

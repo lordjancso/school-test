@@ -83,8 +83,33 @@ class StudentController extends Controller
         ));
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
-        //
+        $ids = $request->get('ids');
+
+        if (!$ids) {
+            $this->addFlash('error', 'Select minimun one student first!');
+
+            return $this->redirectToRoute('students.index');
+        }
+
+        $ids = explode(',', $ids);
+        $em = $this->getDoctrine()->getManager('default');
+
+        $students = $em->getRepository('AppBundle:Student')->createQueryBuilder('s')
+            ->where('s.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->getQuery()
+            ->getResult();
+
+        foreach ($students as $student) {
+            $em->remove($student);
+        }
+
+        $em->flush();
+
+        $this->addFlash('success', 'Student(s) successfully deleted!');
+
+        return $this->redirectToRoute('students.index');
     }
 }

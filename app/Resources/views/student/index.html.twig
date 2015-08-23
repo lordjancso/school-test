@@ -19,6 +19,10 @@
                     <a href="{{ path('students.create') }}">
                         <span class="icon"></span> New
                     </a>
+                    <form action="{{ path('students.delete') }}" method="post" id="delete_form">
+                        <input type="hidden" name="ids" />
+                        <button type="submit">Delete selected</button>
+                    </form>
                 </div>
                 <div id="navigation">
                     {{ knp_pagination_render(students) }}
