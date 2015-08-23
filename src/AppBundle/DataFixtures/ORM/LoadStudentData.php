@@ -3,10 +3,11 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Student;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadStudentData implements FixtureInterface
+class LoadStudentData implements FixtureInterface, DependentFixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -29,6 +30,19 @@ class LoadStudentData implements FixtureInterface
             $student->setBirthplace('City ' . $i);
             $student->setBirthday($birthday);
             $student->setEmail('student' . $i . '@gmail.com');
+
+            $ids = array();
+            for ($j = 0; $j < mt_rand(1, 4); $j++) {
+                $ids[] = mt_rand(1, 6);
+            }
+            $ids = array_unique($ids);
+
+            foreach ($ids as $id) {
+                $study_group = $manager->getReference('AppBundle\Entity\StudyGroup', $id);
+
+                $student->addStudyGroup($study_group);
+            }
+
             $manager->persist($student);
         }
 
@@ -49,8 +63,10 @@ class LoadStudentData implements FixtureInterface
     /**
      * {@inheritDoc}
      */
-    public function getOrder()
+    public function getDependencies()
     {
-        return 2;
+        return array(
+            'AppBundle\DataFixtures\ORM\LoadStudyGroupData'
+        );
     }
 }

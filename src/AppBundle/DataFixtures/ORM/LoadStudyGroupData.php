@@ -57,12 +57,4 @@ class LoadStudyGroupData implements FixtureInterface
 
         $manager->flush();
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOrder()
-    {
-        return 1;
-    }
 }
