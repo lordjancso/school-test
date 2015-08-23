@@ -36,9 +36,9 @@
 
                 <form action="" method="get">
                     {% for study_group in study_groups %}
-                        <div>
-                            <input type="checkbox" name="filters[]" value="{{ study_group.id }}" {% if study_group.id in app.request.get('filters') %}checked{% endif %}/>
-                            {{ study_group.name }}
+                        <div class="filter_row">
+                            <input type="checkbox" id="filter{{ study_group.id }}" name="filters[]" value="{{ study_group.id }}" {% if study_group.id in app.request.get('filters') %}checked{% endif %}/>
+                            <label for="filter{{ study_group.id }}">{{ study_group.name }}</label>
                         </div>
                     {% endfor %}
                 </form>
@@ -46,7 +46,10 @@
             <div id="table" class="right_panel">
                 <table width="100%">
                     <tr>
-                        <th width="4%"><input type="checkbox" value="1" id="all_students"/></th>
+                        <th width="4%">
+                            <input type="checkbox" id="all_students" value="1"/>
+                            <label for="all_students"></label>
+                        </th>
                         <th width="6%"></th>
                         <th width="20%">Name</th>
                         <th width="15%">Sex</th>
@@ -55,7 +58,10 @@
                     </tr>
                     {% for student in students %}
                         <tr>
-                            <td><input type="checkbox" value="{{ student.id }}" name="students[]"/></td>
+                            <td>
+                                <input type="checkbox" id="check{{ student.id }}" value="{{ student.id }}" name="students[]"/>
+                                <label for="check{{ student.id }}"></label>
+                            </td>
                             <td><img src="{{ asset('images/icon_user'~random(range(1, 5))~'.png') }}"/></td>
                             <td>
                                 <a href="{{ path('students.edit', {id: student.id}) }}">{{ student.name }}</a>

@@ -1,3 +1,23 @@
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    background: url('../images/checkbox_default.png') no-repeat top left;
+    height: 16px;
+    width: auto;
+    display: inline-block;
+    padding: 0 0 0 20px;
+}
+
+input[type=checkbox]:checked + label {
+    background: url('../images/checkbox_checked.png') no-repeat top left;
+    height: 16px;
+    width: auto;
+    display: inline-block;
+    padding: 0 0 0 20px;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -266,6 +286,10 @@ button {
 
 #content #filter {
     padding: 30px 42px;
+}
+
+.filter_row {
+    margin: 6px 0;
 }
 
 #content #table {
