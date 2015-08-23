@@ -56,7 +56,7 @@
                     {% for student in students %}
                         <tr>
                             <td><input type="checkbox" value="{{ student.id }}" name="students[]"/></td>
-                            <td><img src="{{ asset('images/icon_user1.png') }}"/></td>
+                            <td><img src="{{ asset('images/icon_user'~random(range(1, 5))~'.png') }}"/></td>
                             <td>
                                 <a href="{{ path('students.edit', {id: student.id}) }}">{{ student.name }}</a>
                             </td>

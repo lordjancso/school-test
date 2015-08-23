@@ -19,7 +19,7 @@ h1, h2, h3 {
     margin: 0;
 }
 
-h2 {
+h2, #table th {
     text-transform: uppercase;
     color: #9ca8af;
     font-size: 14px;
@@ -276,6 +276,10 @@ button {
     text-align: left;
     height: 65px;
     border-bottom: 1px solid #f0f3f5;
+}
+
+#table td:last-child, #table th:last-child {
+    text-align: right;
 }
 
 #table a {

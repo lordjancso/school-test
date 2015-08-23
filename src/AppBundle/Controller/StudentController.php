@@ -31,7 +31,7 @@ class StudentController extends Controller
         $students = $paginator->paginate(
             $students,
             $request->query->getInt('page', 1),
-            25
+            15
         );
 
         return $this->render('student/index.html.twig', array(
