@@ -89,3 +89,10 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+hip_mandrill:
+    api_key: "%mandrill_api_key%"
+    disable_delivery: true # useful for dev/test environment. Default value is 'false'
+    default:
+        sender: "%mandrill_sender_email%"
+        sender_name: "%mandrill_sender_name%"
