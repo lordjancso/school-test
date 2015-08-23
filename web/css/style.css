@@ -18,6 +18,13 @@ h1, h2, h3 {
     margin: 0;
 }
 
+h2 {
+    text-transform: uppercase;
+    color: #9ca8af;
+    font-size: 14px;
+    font-weight: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -107,6 +114,7 @@ body {
     text-transform: uppercase;
     font-weight: bold;
 }
+
 #menu li a span.subtitle {
     color: #767a7e;
 }
@@ -131,8 +139,9 @@ body {
 
 .left_panel {
     float: left;
-    width: 309px;
+    width: 307px;
 }
+
 .right_panel {
     float: right;
     width: 930px;
@@ -141,4 +150,98 @@ body {
 #wrapper #actions {
     border-bottom: 1px solid #f4f7f9;
     height: 120px;
+}
+
+/* actions */
+
+#actions #search {
+    padding: 30px 42px 0 42px;
+}
+
+#actions #search input {
+    border: 0;
+    border-top: 1px solid #d3d8db;
+    padding: 6px;
+    width: 100%;
+    background: #e4e8eb url(../images/icon_search.png) no-repeat scroll 7px 7px;
+    padding-left: 30px;
+}
+
+#actions #info {
+    padding: 50px 42px 0 42px;
+}
+
+#info #counter {
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+#info #buttons {
+    float: left;
+}
+
+#info #buttons a {
+    height: 30px;
+    display: inline-block;
+    background: #34cae0;
+    color: #ffffff;
+    padding-right: 14px;
+    margin: 0 20px;
+    border-radius: 4px;
+}
+
+#info #buttons a span.icon {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: #2cc0d5 url(../images/icon_new.png) no-repeat scroll 7px 7px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 4px 0 0 4px;
+}
+
+#info #navigation {
+    float: right;
+}
+
+.pagination span {
+    width: 30px;
+    height: 30px;
+    background: #cdd7dd;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.pagination span.current {
+    color: #ed7b3d;
+}
+
+.pagination span:not(:last-child) {
+    border-right: 1px solid #e4ebf0;
+}
+
+.pagination a {
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+/* content */
+
+#content #filter {
+    padding: 30px 42px;
+}
+
+#content #table {
+    padding: 0 42px 30px 42px;
+}
+
+#table td, #table th {
+    text-align: left;
+    height: 65px;
+    border-bottom: 1px solid #f0f3f5;
 }

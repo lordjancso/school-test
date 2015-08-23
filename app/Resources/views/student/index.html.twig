@@ -3,28 +3,59 @@
 {% block content %}
     <div id="wrapper">
         <div id="actions" class="clearfix">
-            <div id="serach" class="left_panel">
+            <div id="search" class="left_panel">
                 <h2>Search for name</h2>
 
                 <form action="" method="get">
                     <input type="text" name="keyword"/>
                 </form>
             </div>
-            <div id="buttons" class="right_panel">
-
+            <div id="info" class="right_panel clearfix">
+                <div id="counter">
+                    <img src="{{ asset('images/icon_students.png') }}"/>
+                    {{ students.getTotalItemCount }} students
+                </div>
+                <div id="buttons">
+                    <a href="{{ path('students.create') }}">
+                        <span class="icon"></span> New
+                    </a>
+                </div>
+                <div id="navigation">
+                    {{ knp_pagination_render(students) }}
+                </div>
             </div>
         </div>
         <div id="content" class="clearfix">
             <div id="filter" class="left_panel">
                 <h2>Filters for study groups</h2>
                 {% for study_group in study_groups %}
-                    <div>{{ study_group.name }}</div>
+                    <div>
+                        <input type="checkbox" value="{{ study_group.id }}"/>
+                        {{ study_group.name }}
+                    </div>
                 {% endfor %}
             </div>
             <div id="table" class="right_panel">
-                {% for student in students %}
-                    <div>{{ student.name }}</div>
-                {% endfor %}
+                <table width="100%">
+                    <tr>
+                        <th width="4%"></th>
+                        <th width="6%"></th>
+                        <th width="20%">Name</th>
+                        <th width="15%">Sex</th>
+                        <th width="25%">Place and date of birth</th>
+                        <th width="30%">Groups</th>
+                    </tr>
+                    {% for student in students %}
+                        <tr>
+                            <td><input type="checkbox" value="{{ student.id }}" name="students[]" /></td>
+                            <td><img src="{{ asset('images/icon_user1.png') }}" /></td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.gender }}</td>
+                            <td>{{ student.birthplace }}, {{ student.birthday|date('Y.m.d') }}</td>
+                            <td>{{ student.studyGroups|length }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
