@@ -9,3 +9,9 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+    app.student_listener:
+        class: AppBundle\Event\Listener\StudentListener
+        arguments: ['@hip_mandrill.dispatcher']
+        tags:
+            - { name: kernel.event_listener, event: student.edit, method: edit }

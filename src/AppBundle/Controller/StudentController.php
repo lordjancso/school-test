@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Student;
+use AppBundle\Event\StudentEvent;
 use AppBundle\Form\Type\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,6 +52,7 @@ class StudentController extends Controller
             $em->persist($student);
             $em->flush();
 
+            $this->get('event_dispatcher')->dispatch('student.edit', new StudentEvent($student, 'create'));
             $this->addFlash('success', 'New student created successfully!');
 
             return $this->redirectToRoute('students.index');
@@ -78,6 +80,7 @@ class StudentController extends Controller
             $em->persist($student);
             $em->flush();
 
+            $this->get('event_dispatcher')->dispatch('student.edit', new StudentEvent($student, 'edit'));
             $this->addFlash('success', 'New student edited successfully!');
 
             return $this->redirectToRoute('students.index');
