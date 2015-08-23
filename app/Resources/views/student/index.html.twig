@@ -49,7 +49,9 @@
                         <tr>
                             <td><input type="checkbox" value="{{ student.id }}" name="students[]" /></td>
                             <td><img src="{{ asset('images/icon_user1.png') }}" /></td>
-                            <td>{{ student.name }}</td>
+                            <td>
+                                <a href="{{ path('students.edit', {id: student.id}) }}">{{ student.name }}</a>
+                            </td>
                             <td>{{ student.gender }}</td>
                             <td>{{ student.birthplace }}, {{ student.birthday|date('Y.m.d') }}</td>
                             <td>{{ student.studyGroups|length }}</td>

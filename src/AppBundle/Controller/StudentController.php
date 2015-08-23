@@ -16,9 +16,9 @@ class StudentController extends Controller
         $study_groups = $em->getRepository('AppBundle:StudyGroup')->findAll();
 
         if ($keyword = $request->get('keyword')) {
-            $students = $em->getRepository('AppBundle:Student')->findByKeyword($keyword);
+            $students = $em->getRepository('AppBundle:Student')->findByKeywordWithStudyGroup($keyword);
         } else {
-            $students = $em->getRepository('AppBundle:Student')->findAll();
+            $students = $em->getRepository('AppBundle:Student')->findAllWithStudyGroup();
         }
 
         $paginator = $this->get('knp_paginator');
