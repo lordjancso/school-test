@@ -42,4 +42,15 @@ class StudentRepository extends EntityRepository
 
         return $students;
     }
+
+    public function findByIds(array $ids)
+    {
+        $students = $this->createQueryBuilder('s')
+            ->where('s.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->getQuery()
+            ->getResult();
+
+        return $students;
+    }
 }

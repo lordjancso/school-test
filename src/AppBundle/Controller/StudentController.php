@@ -104,11 +104,7 @@ class StudentController extends Controller
         $ids = explode(',', $ids);
         $em = $this->getDoctrine()->getManager('default');
 
-        $students = $em->getRepository('AppBundle:Student')->createQueryBuilder('s')
-            ->where('s.id IN (:ids)')
-            ->setParameter('ids', $ids)
-            ->getQuery()
-            ->getResult();
+        $students = $em->getRepository('AppBundle:Student')->findByIds($ids);
 
         foreach ($students as $student) {
             $em->remove($student);
