@@ -24,7 +24,7 @@ class LoadStudentData implements FixtureInterface
             $birthday = new \DateTime(date('Y-m-d', $birthday));
 
             $student = new Student();
-            $student->setName('Student ' . $i);
+            $student->setName($this->generateRandomString() . ' Student ' . $i);
             $student->setGender($gender);
             $student->setBirthplace('City ' . $i);
             $student->setBirthday($birthday);
@@ -33,6 +33,17 @@ class LoadStudentData implements FixtureInterface
         }
 
         $manager->flush();
+    }
+
+    private function generateRandomString($length = 3)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     /**
