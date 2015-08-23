@@ -17,9 +17,14 @@
         <div id="content" class="clearfix">
             <div id="filter" class="left_panel">
                 <h2>Filters for study groups</h2>
+                {% for study_group in study_groups %}
+                    <div>{{ study_group.name }}</div>
+                {% endfor %}
             </div>
             <div id="table" class="right_panel">
-
+                {% for student in students %}
+                    <div>{{ student.name }}</div>
+                {% endfor %}
             </div>
         </div>
     </div>
